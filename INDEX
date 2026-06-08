@@ -1,0 +1,172 @@
+# 📑 Foundational Cybersecurity & Linux Documentation
+
+Welcome to my central knowledge base. This document serves as a comprehensive reference guide tracking my foundational learning, institutional coursework, and practical hands-on labs.
+
+---
+
+## 🧭 Table of Contents
+1. [What is Cybersecurity?](#-1-what-is-cybersecurity)
+2. [What is Ethical Hacking?](#-2-what-is-ethical-hacking)
+3. [Virtualization & Network Virtualization](#-3-virtualization--network-virtualization)
+4. [Linux Fundamentals & Deep History](#-4-linux-fundamentals--deep-history)
+5. [Linux Lineage & Distribution Chart](#-5-linux-lineage--distribution-chart)
+6. [Essential Linux Commands Reference](#-6-essential-linux-commands-reference)
+7. [OverTheWire: Bandit Labs](#-7-overthewire-bandit-labs)
+
+---
+
+## 🛡️ 1. What is Cybersecurity?
+
+**Cybersecurity** is the practice of protecting systems, networks, programs, devices, and data from digital attacks, unauthorized access, or damage. It focuses on ensuring the operational integrity of technology infrastructure.
+
+### 🏛️ The CIA Triad
+At the core of all security strategies is the **CIA Triad**:
+*   **Confidentiality:** Ensuring that sensitive data is accessed only by authorized individuals.
+*   **Integrity:** Guarding against improper data modification or destruction to ensure information is accurate and reliable.
+*   **Availability:** Ensuring timely and reliable access to information and system assets for authorized users.
+
+---
+
+## 🎯 2. What is Ethical Hacking?
+
+**Ethical Hacking** involves an authorized attempt to gain unauthorized access to a computer system, application, or data. Unlike malicious hackers, ethical hackers use their skills to discover security vulnerabilities so they can be patched before exploitation occurs.
+
+### 🧪 Key Concepts & Terminology
+
+> ⚠️ **Vulnerability**
+> A weakness, flaw, or loophole in a system's design, implementation, or internal controls that can be exploited by an attacker. 
+> *Example: Outdated software or weak passwords.*
+
+> 💥 **Exploit**
+> A piece of software, a chunk of data, or a sequence of commands that takes advantage of a vulnerability to cause unintended behavior on a system. 
+> *Example: A script that leverages a flaw to grant administrative access.*
+
+> 📦 **Payload**
+> The actual part of the exploit code that executes the malicious action on the target machine (e.g., establishing a reverse shell, stealing data, or executing code). If the exploit opens the door, the payload is the entity that walks through it.
+
+> 🔗 **Hyperlink Masking**
+> A deceptive social engineering technique where an attacker hides a malicious URL behind legitimate-looking anchor text or a misleading display link. 
+> *Example: Making a link text look like `https://trusted-bank.com` while the actual destination anchor points to `http://phishing-scam.com`.*
+
+---
+
+## 🌐 3. Virtualization & Network Virtualization
+
+### 💻 Virtualization Overview
+Virtualization uses software (a Hypervisor) to simulate hardware functionality and create isolated virtual computer systems (Virtual Machines). This allows a single physical machine to run multiple operating systems simultaneously.
+
+### 🔌 Network Virtualization
+Network Virtualization decouples network services from the underlying physical hardware. It abstracts physical networks into software-defined environments, allowing administrators to programmatically spin up routers, switches, and firewalls.
+
+*   **Host-Only Networking:** Isolated network where VMs can communicate only with each other and the host machine (no external internet access).
+*   **NAT (Network Address Translation):** The VM shares the host's IP address to access the external internet, but external systems cannot initiate a connection directly to the VM.
+*   **Bridged Networking:** The VM connects directly to the host's physical network, receiving its own unique IP address from the local router just like a physical machine.
+
+---
+
+## 🐧 4. Linux Fundamentals & Deep History
+
+To truly understand Linux, you have to understand where it came from. Its architecture is deeply tied to the evolution of modern computing systems.
+
+<Image src="image_agent_tag_13496780919472053914" alt="Historical evolution map of operating systems tracking Multics to Unix and the split into Linux and BSD branches" caption="Operating System Evolution: From UNIX roots to modern Linux" />
+
+### 📜 The Detailed History of Linux
+
+#### 🏗️ The Ancestor: UNIX (1969)
+In the late 1960s, AT&T Bell Labs, MIT, and General Electric were working on an ambitious operating system called *Multics*. When Bell Labs pulled out of the project, researchers **Ken Thompson** and **Dennis Ritchie** decided to create a scaled-down, single-user system. They named it **UNIX** (a play on Multics). UNIX was eventually rewritten in the C programming language, making it highly portable across different hardware platforms.
+
+#### 🪓 The Missing Piece: The GNU Project (1983)
+By the 1980s, UNIX had become expensive, proprietary, and commercialized. Frustrated by this shift, **Richard Stallman** launched the **GNU Project** (GNU's Not Unix!). His goal was to build a completely free, open-source UNIX-like operating system. By 1990, Stallman's team had successfully created almost every single component needed for an operating system (text editors, compilers, shells)—except for the core component: **the kernel** (the piece that lets software talk to hardware).
+
+#### 🐧 The Birth of the Kernel (1991)
+In 1991, a Finnish computer science student named **Linus Torvalds** grew tired of the limitations of Minix (a small educational UNIX-like system). He decided to write his own operating system kernel as a hobby project. 
+
+On August 25, 1991, he posted his famous announcement to a Usenet newsgroup:
+> *"I'm doing a (free) operating system (just a hobby, won't be big and professional like gnu)..."*
+
+Torvalds released his kernel under the GNU General Public License (GPL). Developers immediately paired Linus's kernel with Stallman's GNU tools. The result was a complete, fully functional, and completely free operating system: **GNU/Linux**.
+
+### ⚙️ Installation via VMware Player/Workstation
+1.  **Download Resources:** Secure a copy of **VMware Workstation** and download the target Linux ISO (e.g., *Kali Linux* or *Ubuntu*).
+2.  **Create New VM:** Launch VMware, select **Create a New Virtual Machine**, and point the installer to your downloaded ISO file.
+3.  **Allocate Resources:** Dedicate a minimum of 2 CPU cores, 2GB–4GB of RAM, and 20GB of virtual disk space (dynamically allocated).
+4.  **Network Setup:** Choose **NAT** for easy internet access or **Bridged** if you need the VM to interact natively with lab equipment on your local subnet.
+5.  **Run Installer:** Power on the VM and follow the on-screen configuration prompts to establish your root username and password.
+
+---
+
+## 🌳 5. Linux Lineage & Distribution Chart
+
+Because Linux is open-source, anyone can take the source code, modify it, and release their own custom version. These customized versions are called **Distributions (Distros)**. Almost all modern Linux distributions trace their lineage back to three major foundational "family trees."
+
+<Image src="image_agent_tag_13496780919472050475" alt="Linux distribution family chart showing major roots Debian, Arch, Red Hat, and Slackware alongside their derivatives like Kali, Ubuntu, and Fedora" caption="The Modern Linux Family Ecosystem" />
+
+### 🗂️ The Three Major Lineages
+
+#### 🧬 1. The Debian Family Tree
+Debian focuses heavily on stability and open-source purity. It uses the `.deb` package format and the `apt` package manager.
+*   **Ubuntu:** Built using Debian's architecture but designed to be highly user-friendly and desktop-optimized.
+*   **Kali Linux:** Based directly on Debian Testing, specifically packed with pre-installed tools for penetration testing and digital forensics.
+*   **Linux Mint / Pop!_OS:** User-friendly consumer distros branched directly off of Ubuntu.
+
+#### 🎩 2. The Red Hat Family Tree
+Red Hat focuses purely on corporate enterprise environments, servers, and data centers. It uses the `.rpm` package format and the `dnf`/`yum` package managers.
+*   **Red Hat Enterprise Linux (RHEL):** The premium, commercially supported corporate standard.
+*   **Fedora:** The bleeding-edge upstream project sponsored by Red Hat, used to test new technologies before they hit the enterprise.
+*   **Rocky Linux / AlmaLinux:** Free, community-driven downstream clones designed to replace CentOS as a stable server OS.
+
+#### 🏹 3. The Arch Linux Family Tree
+Arch is designed for advanced users who want total control. It follows a minimalist "Do-It-Yourself" philosophy, uses a rolling-release model (constant updates instead of massive version jumps), and runs the `pacman` package manager.
+*   **Manjaro / EndeavourOS:** Distros that take the powerful Arch base and add an easy-to-use graphical installer and desktop interface out of the box.
+
+---
+
+## 🛠️ 6. Essential Linux Commands Reference
+
+| Category | Command | Description | Example Usage |
+| :--- | :--- | :--- | :--- |
+| **Directory Navigation** | `cd` | Change the current directory | `cd /var/log` |
+| | `cd ..` | Move up one directory level | `cd ..` |
+| **Print Working Directory**| `pwd` | Displays the absolute path of current folder | `pwd` |
+| **File & Folder Management**| `ls` | List directory contents | `ls -la` |
+| | `mkdir` | Create a new folder | `mkdir thm-labs` |
+| | `touch` | Create a new empty file | `touch notes.txt` |
+| | `cp` | Copy files or directories | `cp notes.txt backup/` |
+| | `mv` | Move or rename files/folders | `mv notes.txt final.txt` |
+| | `rm` | Delete a file (`-r` for folders) | `rm -rf old-folder` |
+| **Viewing & Editing Files**| `cat` | View entire file contents in terminal | `cat final.txt` |
+| | `less` | View file content with page scrolling | `less syslog` |
+| | `head` / `tail` | View the top or bottom lines of a file | `tail -n 20 auth.log` |
+| | `nano` / `vim` | Terminal-based text editors | `nano configuration.conf` |
+| **System & Admin Priv.** | `sudo` | Execute a command with root privileges | `sudo apt update` |
+| | `chmod` | Modify file/directory permissions | `chmod +x script.sh` |
+| | `chown` | Change file/directory ownership | `sudo chown root system.log` |
+| **Networking Commands** | `ifconfig` / `ip a` | View network interface configurations | `ip a` |
+| | `ping` | Test connectivity to a host | `ping -c 4 8.8.8.8` |
+| | `netstat` / `ss` | Display active network connections & ports | `ss -tulpn` |
+
+---
+
+## 🎮 7. OverTheWire: Bandit Labs
+
+This section tracks my practical progress through the **OverTheWire: Bandit** wargame, which focuses on developing core Linux command-line skills.
+
+### 📈 Current Progress
+- [x] Bandit Level 0
+- [x] Bandit Level 1
+- [x] Bandit Level 2
+- [x] Bandit Level 3
+- [x] Bandit Level 4
+- [x] Bandit Level 5
+- [x] Bandit Level 6
+- [x] Bandit Level 7
+- [x] Bandit Level 8
+- [x] Bandit Level 9
+- [x] Bandit Level 10
+- [x] Bandit Level 11
+- [x] Bandit Level 12
+- [ ] Bandit Level 13
+- [ ] Bandit Level 14
+- [ ] Bandit Level 15
+
+*(Notes, password keys, and commands used to solve each level can be added under specific sub-headers here as you complete them).*
