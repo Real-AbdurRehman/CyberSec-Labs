@@ -1,6 +1,10 @@
 # CyberSec-Labs
 A centralized repository tracking my hands-on cybersecurity journey, featuring lab notes, write-ups from TryHackMe, institutional coursework, and technical documentation
 # 🛡️ CyberSec Labs: My Cybersecurity Journey
+# 🛡️ رحلتي في الأمن السيبراني
+# 🛡️ माझा सायबर सिक्युरिटी प्रवास
+# 🛡️ میری سائبر سیکیورٹی کا سفر
+# 🛡️ मेरा साइबर सिक्योरिटी सफर
 
 Welcome to my cybersecurity repository! This space serves as a living portfolio and digital notebook documenting my journey into information security. Here, I track my hands-on labs, institutional training, conceptual notes, and practical methodology as I transition into the cybersecurity field.
 
